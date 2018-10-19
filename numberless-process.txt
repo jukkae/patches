@@ -1,0 +1,99 @@
+BASS:
+	- Mix B (out) p> Triple MIA (ch1 a)
+	- Triple MIA (ch1) p> Twin waves (V.Oct 2)
+	- Twin waves (Out 2) -> MMF (IN)
+	- MMF (LP) -> Triple VCA (in 2)
+	- MMF (HP) -> Triple VCA (in 1)
+	- Sinc Iter (uni) >> MMF (res cv)
+	- Sinc Iter (bi) >> Twin waves (param 2)
+	- Sinc Iter (bi) p> Mix B (in 3)
+	- LFO Tile (tri) >> Triple MIA (ch2 a)
+	- Cyclic Skew (out) >> Triple MIA (ch2 b)
+	- Triple MIA (ch2) >> MMF (fm)
+	- Cyclic Skew (out) p> Mix B (in 1)
+	- LFO Tile (sine) p> Mix B (in 2)
+	- V Noise (out) g> Cyclic Skew (trig)
+
+LEAD:
+	- Cyclic Skew (out) >> Twin waves (param 1)
+	- uO_C (out a) p> Twin waves (V.Oct 1)
+	- Twin Waves (Out 1) -> LxD (12 dB in)
+	- LxD (12 dB out) -> Spring Reverberation (in)
+	- Spring Reverberation (out) -> Triple VCA (in 3)
+	- V Noise (out) g> uO_C (trig 2)
+	- Clock Generator (out) c> uO_C (trig 1)
+	- FSR (gate) g> uO_C (trig 3)
+	- Triple MIA (ch3) p> uO_C (cv 1)
+	- Mix B (out) p> Triple MIA (ch3 a)
+	- LFO Tile (square) >> Slew (in)
+	- Slew (out) >> LxD (12 dB CV)
+
+MASTER:
+	- Triple VCA (out 3) -> DPLR (in)
+	- DPLR (out a) -> Output (l)
+	- DPLR (out b) -> Output (r)
+	- Sinc Iter (uni) >> DPLR (regen)
+
+	* LFO:
+		| Rate = Slow, wiggle
+
+	* Cyclic Skew:
+		| Mode = Cycle
+		| Skew = Wiggle
+		| Rate = Slowish, wiggle
+
+	* Mix B:
+		| Mix = wiggle
+
+	* Spring Reverberation:
+		| Drive = max
+		| Fdbk, mix = wiggle
+
+	* Clock Generator:
+		| Tempo = ~5.5, wiggle
+
+	* V Noise:
+		| Rate = 1
+
+	* Slew:
+		| Time = max
+
+	* uO_C:
+		| App = CopierMaschine
+		| Scale = Aeolian
+		| Octave = +1
+		| Input gain = 0.4
+		| Hold length = 4
+
+	* Triple MIA:
+		| Channel summing = Off (/ On)
+		| Levels = to taste
+
+	* Sinc Iter:
+		| Pitch = LFO
+		| Mode = Noise
+		| Morph / Fold = 3-4
+
+	* Twin waves:
+		| Osc 1 alg = AO
+		| Osc 1 param = 0
+		| Osc 1 qtz = off
+		| Osc 1 tune = free
+		| Osc 2 alg = Sync saw
+		| Osc 2 param = 0
+		| Osc 2 qtz = m
+		| Osc 2 tune = -1 oct to osc 1
+
+	* MMF:
+		| Cutoff = 0-5
+		| Resonance = 0
+		| Fm level = +1-2
+
+	* Triple VCA:
+		| Sum = all channels
+
+	* DPLR:
+		| Regen = 4
+		| Delay = 6
+		| Spread = 7
+		| Amount = to taste
