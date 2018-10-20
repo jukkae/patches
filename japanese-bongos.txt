@@ -143,3 +143,5 @@ SWEEPS:
 	| Cutoff = 4
 	| Resonance = 2
 	| FM level = 10
+
+// TODO: There's still enough control signals for another voice or two!
