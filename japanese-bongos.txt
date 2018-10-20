@@ -1,0 +1,145 @@
+KOTO:
+	- Pluck (out) -> Spring reverb (in)
+	- Spring reverb (out) -> Triple VCA (ch1 in)
+	- Penrose (out) p> Pluck (pitch)
+	- Turing machine (out) -> Penrose (in)
+	- Turing machine (pulse) t> Pluck (trig)
+
+	- RYO Triple VCA (ch3 out) c> Turing machine (clock)
+	- Clock generator (out) c> RYO Triple VCA (ch3 in)
+	- Rampage (ch1 falling) g> RYO Triple VCA (ch3 cv)
+
+MASTER:
+	- Triple VCA (out) -> DPLR (in)
+	- DPLR (out a) -> Disting (x)
+	- DPLR (out b) -> Disting (y)
+	- Disting (a) -> Output (l)
+	- Disting (b) -> Output (r)
+
+BONGO:
+	- LxD (6dB out) -> Triple VCA (ch2 in)
+	- ADSR (out) >> Triple VCA (ch2 cv)
+	- ADSR (out) >> Triple MIA (ch1 a)
+	- Triple MIA (ch1 out) >> LxD (6dB cv)
+	- Rampage (ch2 EOC) t> LxD (6dB trig)
+	- Twin waves (out 1) -> LxD (6dB in)
+
+	- uO_C (out a) p> Twin waves (v.oct 1)
+	- Sinc Iter (uni) p> uO_C (cv 1)
+	- Rampage (ch2 EOC) t> uO_C (trig 1)
+
+	- Rampage (ch2 EOC) t> Dual attenuverter (in 1)
+	- Dual attenuverter (out 1) t> ADSR (gate)
+
+BRAIN:
+	- Sinc Iter (bi) >> SH (in)
+	- Rampage (ch1 EOC) t> SH (SH clock)
+	- SH (out) >> Dual attenuverter (in 2)
+	- Dual attenuverter (out 2) >> Rampage (ch2 exp cv)
+	- Rampage (ch1 rising) g> Rampage (ch2 trig)
+	- Rampage (ch1 rising) g> Rampage (ch2 loop)
+
+SWEEPS:
+	- Turing machine (volts) p> Twin waves (v.oct 2)
+	- Twin waves (out 2) -> MMF (in)
+	- MMF (lp) -> Triple VCA (ch3 in)
+	- Cyclic skew (out) >> Triple VCA (ch3 cv)
+	- Cyclic skew (out) >> MMF (fm)
+	- Turing machine (pulses 4+7) t> Cyclic skew (trig)
+
+	* Pluck:
+	| Damp = 5
+	| Decay = 5
+	| Pitch = low oct
+
+	* Spring reverb:
+	| Drive = max
+	| Fdbk = 4
+	| Mix = 5
+
+	* Penrose:
+	| Scale = aeolian
+
+	* Turing machine:
+	| Scale = 3
+	[ Length = 16
+	| Lock = 7
+	| Volts = moderate
+
+	* Dual attenuverter:
+	| Ch1 att = max
+	| Ch1 offset = +3
+	| Ch2 att = +2
+	| Ch2 offset = +2
+
+	* Clock generator:
+	| Tempo = 2
+
+	* Rampage:
+	| Ch1 range = mid
+	| Ch1 rise = ~8
+	| Ch1 fall = ~8
+	| Ch1 loop = on
+	| Ch2 range = mid
+	| Ch2 rise = ~4
+	| Ch2 fall = ~4
+	| Ch2 loop = off
+
+	* Triple VCA:
+	| Ch sums = on
+	| Ch1 level = 2
+	| Ch2 level = 0
+	| Ch2 CV = +5
+	| Ch3 level = 0
+	| Ch3 CV = +2
+
+	* DPLR:
+	| Regen = 2
+	| Delay = 10
+	| Spread = 5
+	| Amount = 10
+
+	* Disting:
+	| Mode = reverb
+	| Params = to taste
+
+	* ADSR:
+	| Range = short
+	| A = 0
+	| D = 10
+	| S = 0
+	| R = 7
+
+	* Triple MIA:
+	| ch1 a = +1
+	| ch1 b = 0
+
+	* Twin waves:
+	| Osc1 alg = AA
+	| Osc1 param = 0, wiggle
+	| Osc1 tune = to tune
+	| Osc1 qtz = off
+	| Osc2 alg = AA
+	| Osc2 param = 0, wiggle
+	| Osc2 tune = to tune
+	| Osc2 qtz = m
+
+	* uO_C:
+	| App = CopierMaschine
+	| Scale = Aeolion
+	| Mask = 1357
+	| Input gain = 1.0
+
+	* Sinc Iter:
+	| Mode = Noise
+	| Morph = 0, wiggle
+	| Rate = Slow, wiggle
+
+	* Cyclic skew:
+	| Rate = 4, wiggle
+	| Skew = 10, wiggle
+
+	* MMF:
+	| Cutoff = 4
+	| Resonance = 2
+	| FM level = 10
