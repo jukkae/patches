@@ -1,0 +1,146 @@
+FLUTE:
+	- Twin Waves (Out 1) -> Triple VCA (in 3)
+	- ADSR (Out) >> Triple VCA (CV 3)
+	- V Noise (Out) g> ADSR (Gate)
+	- V Noise (Out) g> Sample and Hold (SH clock)
+	- V Noise (Out) g> uO_C (Trig 3)
+	- V Noise (Out) g> uO_C (Trig 1)
+	- Triple MIA (Out 2) >> Sample and Hold (In)
+	- Sinc Iter (Out Bi) >> Triple MIA (In 2 A)
+	- Sample and Hold (Out) >> uO_C (CV 1)
+	- uO_C (Out A) p> Slew (In)
+	- Slew (Out) p> Mix B (In 1)
+	- Mix B (Out) p> Twin Waves (V. Oct 1)
+	- Cyclic Skew (Out) >> VCA (CV)
+	- VCA (Out) >> Mix B (In 2)
+	- uO_C (Out C) t> Cyclic Skew (Trig)
+	- Twin Waves (Out 2) >> VCA (In)
+	- Triple MIA (Out 1) >> Twin Waves (Param 1)
+	- LFO (Sin) >> Triple MIA (In 1 A)
+
+CLICKS:
+	- Twin Waves (Out Sub) -> Comb (In)
+	- Comb (Out) -> LxD (6dB In)
+	- LxD (6dB Out) -> Triple VCA (in 1)
+	- uStep (ch B out) t> LxD (6dB strike)
+
+KOTO:
+	- Pluck (Out) -> Spring Reverberation (In)
+	- Spring Reverberation (Out) -> MMF (In)
+	- MMF (LP) -> Triple VCA (in 2)
+	- LFO (Tri) >> MMF (FM)
+	- LFO (Tri) >> Triple VCA (cv 2)
+	- uStep (ch A out) t> Pluck (Trig)
+	- uStep (ch A out) t> uO_C (Trig 2)
+	- uO_C (Out B) p> Pluck (V Oct)
+	- Triple MIA (Out 3) >> uO_C (CV 2)
+	- Twin Waves (Out 2) >> Triple MIA (In 3 A)
+	- Sinc Iter (Out Uni) >> Triple MIA (In 3 B)
+
+MASTER:
+	- Triple VCA (Out 3) -> DPLR (In)
+	- DPLR (Out A) -> Output (L)
+	- DPLR (Out B) -> Output (R)
+	- FSR 1 (CV) >> DPLR (Spread)
+	- FSR 2 (CV) >> DPLR (Delay)
+
+	- Clock Generator (Out) t> uStep (CLK)
+
+	* LFO:
+	| Rate = 0
+
+	* Cyclic Skew:
+	| Rate = 3
+	| Skew = 8
+
+	* VCA:
+	| Level = 4
+	| CV Amount = 10
+
+	* Mix B:
+	| 1 = 10
+	| 2 = 3
+
+	* Spring Reverberation:
+	| Drive = 10
+	| Feedback = 4
+	| Output Mix = 5
+
+	* Clock Generator:
+	| Tempo = ~9:00
+
+	* V Noise:
+	| Rate = 1-2
+
+	* Slew:
+	| Rate = ~2
+
+	* uO_C:
+	| App = Hemispheres
+	| Left App = Dual Quant
+	| Left Scale A = BHAI
+	| Left Scale B = BHAI
+	| Left Offset A = C
+	| Left Offset B = C
+	| Right App = Brancher
+	| Right P = 50
+
+	* uStep:
+	| Steps = To taste
+
+	* Triple MIA:
+	| Level 1 A = -2
+	| Level 1 B = -1
+	| Level 2 A = 1.5
+	| Level 2 B = 1
+	| Level 3 A = 1
+	| Level 3 B = -3
+	| Ch summing = off
+
+	* Pluck:
+	| Trig = 3
+	| Damp = 3
+	| Pitch = To tune
+
+	* Sinc Iter:
+	| Range = LFO
+	| Fold = To taste
+	| Mode = Noise
+
+	* Twin Waves:
+	| Osc 1 Algo = AO
+	| Osc 1 Tune = To tune
+	| Osc 1 Qtz = Off
+	| Osc 2 Mode = LFO
+	| Osc 2 Algo = Sine
+	
+	* ADSR:
+	| Range = Up
+	| A = 5 (wiggle)
+	| D = 3 (wiggle)
+	| S = 5 (wiggle)
+	| R = 6 (wiggle)
+
+	* MMF:
+	| Cutoff = 5
+	| Resonance = 3
+	| FM Level = 5
+
+	* Triple VCA:
+	| Ch 1 level = 2
+	| Ch 1 CV = -5
+	| Ch 2 level = 4
+	| Ch 2 CV = +1
+	| Ch 3 level = 3
+	| Ch 3 CV = +2
+
+	* Comb:
+	| Freq = 5
+	| Res = 8
+	| Damp = 5
+
+	* DPLR:
+	| Regen = 8
+	| Delay = 6
+	| Spread = 5
+	| Amount = 10
